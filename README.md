@@ -75,6 +75,8 @@ node index.js
 
 - `/ban [user]` - Ban a user
 
+### After deploying the bot, add the bot to your server
+### Install your bot's Slash commands using the !install directive
 ## info
 ✅ Easy-to-use
 ✅ Stable
