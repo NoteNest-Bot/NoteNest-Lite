@@ -1,6 +1,7 @@
 <a href="https://discord.gg/E4VbGF8KR2">
     <img src="https://img.shields.io/discord/811542332678996008?color=7289DA&label=Support&logo=discord&style=for-the-badge" alt="Discord">
 </a>
+
 # NoteNest-Music-bot
 
 A simple and powerful Discord music bot built using `discord.js` and `discord-player`.
