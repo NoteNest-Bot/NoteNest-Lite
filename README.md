@@ -82,8 +82,8 @@ node index.js
 ### After deploying the bot, add the bot to your server
 ### Install your bot's Slash commands using the !install directive
 ## info
-✅ Easy-to-use
-✅ Stable
-✅ Slash Commands
-❎ Open Source
-✅ Good music commands
+<li>✅ Easy-to-use</li>
+<li>✅ Stable </li>
+<li>✅ Slash Commands</li>
+<li>✅ Open Source</li>
+<li>✅ Good music commands</li>

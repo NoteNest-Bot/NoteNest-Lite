@@ -21,4 +21,108 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
-const _0x4a56d8=_0x1b83;(function(_0x1673c8,_0x574aa2){const _0x41c960=_0x1b83,_0x38364b=_0x1673c8();while(!![]){try{const _0x460dc5=-parseInt(_0x41c960(0x224))/0x1+-parseInt(_0x41c960(0x201))/0x2+parseInt(_0x41c960(0x1f5))/0x3+parseInt(_0x41c960(0x1e8))/0x4*(-parseInt(_0x41c960(0x1fb))/0x5)+parseInt(_0x41c960(0x21c))/0x6+-parseInt(_0x41c960(0x1dd))/0x7+parseInt(_0x41c960(0x202))/0x8;if(_0x460dc5===_0x574aa2)break;else _0x38364b['push'](_0x38364b['shift']());}catch(_0x667e6c){_0x38364b['push'](_0x38364b['shift']());}}}(_0x5f17,0x4813d),require(_0x4a56d8(0x21a))[_0x4a56d8(0x216)]());function _0x1b83(_0x24e854,_0x1852d1){const _0x5f1794=_0x5f17();return _0x1b83=function(_0x1b836c,_0x5485b3){_0x1b836c=_0x1b836c-0x1dd;let _0x570c57=_0x5f1794[_0x1b836c];return _0x570c57;},_0x1b83(_0x24e854,_0x1852d1);}function _0x5f17(){const _0xe55786=['send','❌\x20|\x20I\x20was\x20manually\x20disconnected\x20from\x20the\x20voice\x20channel,\x20clearing\x20queue!','execute','emptyChannel','**\x20added\x20to\x20the\x20queue!','audioTrackAdd','.js','!install','🎶\x20|\x20Song\x20**','extractors','messageCreate','audioTracksAdd','reply','login','followUp','playerStart','guild','config','Ready!','presence','bot','dotenv','emptyQueue','3510552MWpMwc','error','then','fetch','author','Reconnecting!','interactionCreate','delete','93875RotcTB','636958nodTds','loadDefault','userinfo','once','ban','▶\x20|\x20Started\x20playing:\x20**','🎶\x20|\x20Tracks\x20have\x20been\x20queued!','✅\x20|\x20Queue\x20finished!','owner','name','catch','769324dRflUU','./commands/','disconnect','log',']\x20Error\x20emitted\x20from\x20the\x20connection:\x20','application','set','metadata','title','Collection','channel','ready','There\x20was\x20an\x20error\x20trying\x20to\x20execute\x20that\x20command!','442689znJfQs','./config.json','events','user','TOKEN','installd✅','15UvrdoT','Could\x20not\x20deploy\x20commands!\x20Make\x20sure\x20the\x20bot\x20has\x20the\x20application.commands\x20permission!','commands','reconnecting','env','discord-player','62902SrRDCg','2847096SDjAtH','readdirSync','Extractors\x20loaded\x20successfully'];_0x5f17=function(){return _0xe55786;};return _0x5f17();}const fs=require('fs'),Discord=require('discord.js'),Client=require('./client/Client'),config=require(_0x4a56d8(0x1f6)),{Player}=require(_0x4a56d8(0x200)),client=new Client();client[_0x4a56d8(0x1fd)]=new Discord[(_0x4a56d8(0x1f1))]();const commandFiles=fs[_0x4a56d8(0x203)]('./commands')['filter'](_0x21f415=>_0x21f415['endsWith'](_0x4a56d8(0x20b)));for(const file of commandFiles){const command=require(_0x4a56d8(0x1e9)+file);client[_0x4a56d8(0x1fd)][_0x4a56d8(0x1ee)](command[_0x4a56d8(0x1e6)],command);}console[_0x4a56d8(0x1eb)](client['commands']);const player=new Player(client);player[_0x4a56d8(0x20e)][_0x4a56d8(0x1de)]()['then'](_0x302532=>console[_0x4a56d8(0x1eb)](_0x4a56d8(0x204))),player[_0x4a56d8(0x1f7)]['on'](_0x4a56d8(0x20a),(_0x5b88e6,_0x5d8167)=>{const _0x2c7ee8=_0x4a56d8;_0x5b88e6[_0x2c7ee8(0x1ef)]['channel'][_0x2c7ee8(0x205)](_0x2c7ee8(0x20d)+_0x5d8167[_0x2c7ee8(0x1f0)]+_0x2c7ee8(0x209));}),player[_0x4a56d8(0x1f7)]['on'](_0x4a56d8(0x214),(_0x400447,_0x43bcb1)=>{const _0x5436d0=_0x4a56d8;_0x400447[_0x5436d0(0x1ef)][_0x5436d0(0x1f2)][_0x5436d0(0x205)](_0x5436d0(0x1e2)+_0x43bcb1[_0x5436d0(0x1f0)]+'**!');}),player[_0x4a56d8(0x1f7)]['on'](_0x4a56d8(0x210),(_0x3ea3b4,_0x1f656a)=>{const _0x2d3b9d=_0x4a56d8;_0x3ea3b4[_0x2d3b9d(0x1ef)][_0x2d3b9d(0x1f2)][_0x2d3b9d(0x205)](_0x2d3b9d(0x1e3));}),player[_0x4a56d8(0x1f7)]['on'](_0x4a56d8(0x1ea),_0x1d8cc4=>{const _0x466469=_0x4a56d8;_0x1d8cc4[_0x466469(0x1ef)][_0x466469(0x1f2)][_0x466469(0x205)](_0x466469(0x206));}),player[_0x4a56d8(0x1f7)]['on'](_0x4a56d8(0x208),_0xdcec75=>{const _0x1fe984=_0x4a56d8;_0xdcec75[_0x1fe984(0x1ef)][_0x1fe984(0x1f2)][_0x1fe984(0x205)]('❌\x20|\x20Nobody\x20is\x20in\x20the\x20voice\x20channel,\x20leaving...');}),player[_0x4a56d8(0x1f7)]['on'](_0x4a56d8(0x21b),_0x350e9e=>{const _0x5eece0=_0x4a56d8;_0x350e9e['metadata'][_0x5eece0(0x1f2)][_0x5eece0(0x205)](_0x5eece0(0x1e4)),_0x350e9e[_0x5eece0(0x223)]();}),player[_0x4a56d8(0x1f7)]['on']('error',(_0x11f1e9,_0x2766c5)=>{const _0x3736a0=_0x4a56d8;console['log']('['+_0x11f1e9['guild'][_0x3736a0(0x1e6)]+_0x3736a0(0x1ec)+_0x2766c5['message']);}),client['on'](_0x4a56d8(0x1f3),function(){const _0x50f1fb=_0x4a56d8;console[_0x50f1fb(0x1eb)](_0x50f1fb(0x217)),client[_0x50f1fb(0x1f8)][_0x50f1fb(0x218)][_0x50f1fb(0x1ee)]({'activities':[{'name':config['activity'],'type':Number(config['activityType'])}],'status':Discord['Status']['Ready']});}),client[_0x4a56d8(0x1e0)](_0x4a56d8(0x1fe),()=>{const _0x44c02c=_0x4a56d8;console[_0x44c02c(0x1eb)](_0x44c02c(0x221));}),client['once']('disconnect',()=>{console['log']('Disconnect!');}),client['on'](_0x4a56d8(0x20f),async _0x3c576c=>{const _0xe786a1=_0x4a56d8;if(_0x3c576c[_0xe786a1(0x220)][_0xe786a1(0x219)]||!_0x3c576c[_0xe786a1(0x215)])return;if(!client[_0xe786a1(0x1ed)]?.[_0xe786a1(0x1e5)])await client[_0xe786a1(0x1ed)]?.[_0xe786a1(0x21f)]();_0x3c576c['content']===_0xe786a1(0x20c)&&_0x3c576c['author']['id']===client['application']?.['owner']?.['id']&&await _0x3c576c[_0xe786a1(0x215)][_0xe786a1(0x1fd)][_0xe786a1(0x1ee)](client[_0xe786a1(0x1fd)])[_0xe786a1(0x21e)](()=>{const _0x23a54a=_0xe786a1;_0x3c576c[_0x23a54a(0x211)](_0x23a54a(0x1fa));})[_0xe786a1(0x1e7)](_0x4504a6=>{const _0x317e06=_0xe786a1;_0x3c576c[_0x317e06(0x211)](_0x317e06(0x1fc)),console['error'](_0x4504a6);});}),client['on'](_0x4a56d8(0x222),async _0x47d9d8=>{const _0x26536c=_0x4a56d8,_0x3e8a7d=client[_0x26536c(0x1fd)]['get'](_0x47d9d8['commandName']['toLowerCase']());try{_0x47d9d8['commandName']==_0x26536c(0x1e1)||_0x47d9d8['commandName']==_0x26536c(0x1df)?_0x3e8a7d['execute'](_0x47d9d8,client):_0x3e8a7d[_0x26536c(0x207)](_0x47d9d8);}catch(_0x1fe012){console[_0x26536c(0x21d)](_0x1fe012),await _0x47d9d8[_0x26536c(0x213)]({'content':_0x26536c(0x1f4)});}}),client[_0x4a56d8(0x212)](process[_0x4a56d8(0x1ff)][_0x4a56d8(0x1f9)]);
+require('dotenv').config();
+
+const fs = require('fs');
+const Discord = require('discord.js');
+const Client = require('./client/Client');
+const config = require('./config.json');
+const {Player} = require('discord-player');
+
+const client = new Client();
+client.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
+}
+
+console.log(client.commands);
+
+const player = new Player(client);
+
+player.extractors.loadDefault().then(r => console.log('Extractors loaded successfully'));
+
+player.events.on('audioTrackAdd', (queue, song) => {
+    queue.metadata.channel.send(`🎶 | Song **${song.title}** added to the queue!`);
+});
+
+player.events.on('playerStart', (queue, track) => {
+    queue.metadata.channel.send(`▶ | Started playing: **${track.title}**!`);
+});
+
+player.events.on('audioTracksAdd', (queue, track) => {
+    queue.metadata.channel.send(`🎶 | Tracks have been queued!`);
+});
+
+player.events.on('disconnect', queue => {
+    queue.metadata.channel.send('❌ | I was manually disconnected from the voice channel, clearing queue!');
+});
+
+player.events.on('emptyChannel', queue => {
+    queue.metadata.channel.send('❌ | Nobody is in the voice channel, leaving...');
+});
+
+player.events.on('emptyQueue', queue => {
+    queue.metadata.channel.send('✅ | Queue finished!');
+    // Delete queue and disconnect from voice channel
+    queue.delete();
+});
+
+player.events.on('error', (queue, error) => {
+    console.log(`[${queue.guild.name}] Error emitted from the connection: ${error.message}`);
+});
+
+client.on('ready', function () {
+    console.log('Ready!');
+    client.user.presence.set({
+        activities: [{name: config.activity, type: Number(config.activityType)}],
+        status: Discord.Status.Ready,
+    });
+});
+
+client.once('reconnecting', () => {
+    console.log('Reconnecting!');
+});
+
+client.once('disconnect', () => {
+    console.log('Disconnect!');
+});
+
+client.on('messageCreate', async message => {
+    if (message.author.bot || !message.guild) return;
+    if (!client.application?.owner) await client.application?.fetch();
+
+    if (message.content === '!install' && message.author.id === client.application?.owner?.id) {
+        await message.guild.commands
+            .set(client.commands)
+            .then(() => {
+                message.reply('Deployed!');
+            })
+            .catch(err => {
+                message.reply('Could not deploy commands! Make sure the bot has the application.commands permission!');
+                console.error(err);
+            });
+    }
+});
+
+client.on('interactionCreate', async interaction => {
+    const command = client.commands.get(interaction.commandName.toLowerCase());
+
+    try {
+        if (interaction.commandName == 'ban' || interaction.commandName == 'userinfo') {
+            command.execute(interaction, client);
+        } else {
+            command.execute(interaction);
+        }
+    } catch (error) {
+        console.error(error);
+        await interaction.followUp({
+            content: 'There was an error trying to execute that command!',
+        });
+    }
+});
+
+client.login(process.env.TOKEN);
