@@ -26,7 +26,7 @@ A simple and powerful Discord music bot built using `discord.js` and `discord-pl
 1. Clone the repository:
     ```sh
     git clone https://github.com/NoteNest-Bot/NoteNest-Music-bot.git
-    cd disbot
+    cd NoteNest-Lite
     ```
 
 2. Install dependencies:
