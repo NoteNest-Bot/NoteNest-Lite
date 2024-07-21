@@ -21,29 +21,37 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
+/*.*/
 require('dotenv').config();
 
 const fs = require('fs');
-const Discord = require('discord.js');
-const Client = require('./client/Client');
+const { Client, Intents, Collection } = require('discord.js');
+const { Player } = require('discord-player');
+const { joinVoiceChannel, getVoiceConnection } = require('@discordjs/voice');
 const config = require('./config.json');
-const {Player} = require('discord-player');
+const settingsManager = require('./client/settingsManager.js');// 
+// const { token } = require('./client/config.json');
+const client = new Client({ 
+    intents: [
+        Intents.FLAGS.GUILDS, 
+        Intents.FLAGS.GUILD_VOICE_STATES,
+        Intents.FLAGS.GUILD_MESSAGES
+    ] 
+});
 
-const client = new Client();
-client.commands = new Discord.Collection();
+client.commands = new Collection();
+client.settings = settingsManager;
 
+// Load command files
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
 
-console.log(client.commands);
-
+// Initialize Player
 const player = new Player(client);
-
-player.extractors.loadDefault().then(r => console.log('Extractors loaded successfully'));
+player.extractors.loadDefault().then(() => console.log('Extractors loaded successfully'));
 
 player.events.on('audioTrackAdd', (queue, song) => {
     queue.metadata.channel.send(`🎶 | Song **${song.title}** added to the queue!`);
@@ -53,21 +61,20 @@ player.events.on('playerStart', (queue, track) => {
     queue.metadata.channel.send(`▶ | Started playing: **${track.title}**!`);
 });
 
-player.events.on('audioTracksAdd', (queue, track) => {
+player.events.on('audioTracksAdd', (queue) => {
     queue.metadata.channel.send(`🎶 | Tracks have been queued!`);
 });
 
-player.events.on('disconnect', queue => {
+player.events.on('disconnect', (queue) => {
     queue.metadata.channel.send('❌ | I was manually disconnected from the voice channel, clearing queue!');
 });
 
-player.events.on('emptyChannel', queue => {
+player.events.on('emptyChannel', (queue) => {
     queue.metadata.channel.send('❌ | Nobody is in the voice channel, leaving...');
 });
 
-player.events.on('emptyQueue', queue => {
+player.events.on('emptyQueue', (queue) => {
     queue.metadata.channel.send('✅ | Queue finished!');
-    // Delete queue and disconnect from voice channel
     queue.delete();
 });
 
@@ -75,11 +82,12 @@ player.events.on('error', (queue, error) => {
     console.log(`[${queue.guild.name}] Error emitted from the connection: ${error.message}`);
 });
 
-client.on('ready', function () {
+// Client ready event
+client.on('ready', () => {
     console.log('Ready!');
     client.user.presence.set({
-        activities: [{name: config.activity, type: Number(config.activityType)}],
-        status: Discord.Status.Ready,
+        activities: [{ name: config.activity, type: Number(config.activityType) }],
+        status: 'online',
     });
 });
 
@@ -91,7 +99,8 @@ client.once('disconnect', () => {
     console.log('Disconnect!');
 });
 
-client.on('messageCreate', async message => {
+// Command handling
+client.on('messageCreate', async (message) => {
     if (message.author.bot || !message.guild) return;
     if (!client.application?.owner) await client.application?.fetch();
 
@@ -99,29 +108,48 @@ client.on('messageCreate', async message => {
         await message.guild.commands
             .set(client.commands)
             .then(() => {
-                message.reply('Deployed!');
+                message.reply('✅ Installed commands!');
             })
             .catch(err => {
-                message.reply('Could not deploy commands! Make sure the bot has the application.commands permission!');
+                message.reply('❌ Could not deploy commands! Make sure the bot has the application.commands permission!');
                 console.error(err);
             });
     }
 });
 
-client.on('interactionCreate', async interaction => {
+client.on('interactionCreate', async (interaction) => {
+    if (!interaction.isCommand()) return;
+    
     const command = client.commands.get(interaction.commandName.toLowerCase());
 
+    if (!command) return;
+
     try {
-        if (interaction.commandName == 'ban' || interaction.commandName == 'userinfo') {
-            command.execute(interaction, client);
+        if (interaction.commandName === 'ban' || interaction.commandName === 'userinfo') {
+            await command.execute(interaction, client);
         } else {
-            command.execute(interaction);
+            await command.execute(interaction);
         }
     } catch (error) {
         console.error(error);
-        await interaction.followUp({
-            content: 'There was an error trying to execute that command!',
+        await interaction.reply({
+            content: 'There was an error while executing this command!',
+            ephemeral: true,
         });
+    }
+});
+
+// Voice state update handling
+client.on('voiceStateUpdate', (oldState, newState) => {
+    const connection = getVoiceConnection(newState.guild.id);
+    if (connection && connection.joinConfig.channelId === oldState.channelId) {
+        const guildId = oldState.guild.id;
+        if (client.settings.get(guildId, '247', false) && oldState.channel.members.size === 1) {
+            return; // Keep the bot in the channel
+        }
+        if (!client.settings.get(guildId, '247', false) && oldState.channel.members.size === 1) {
+            connection.destroy(); // Disconnect the bot if 24/7 mode is off and channel is empty
+        }
     }
 });
 
